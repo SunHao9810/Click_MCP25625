@@ -123,7 +123,7 @@
  * @par
  * - Stand-Alone CAN2.0B Controller with Integrated CAN Transceiver and SPI
  * - Up to 1 Mb/s Operation
- * - Very Low Standby Current ( 10 μA, typical )
+ * - Very Low Standby Current ( 10 渭A, typical )
  * - Up to 10 MHz SPI Clock Speed
  * - Interfaces Directly with Microcontrollers with 2.7V to 5.5V I/O
  * - Temperature Ranges: -40C ~ 125C
@@ -156,10 +156,10 @@
  * - Automatic Thermal Shutdown Protection
  * - Suitable for 12V and 24V Systems
  * - Meets or Exceeds Stringent Automotive Design Requirements Including
- * “Hardware Requirements for LIN, CAN and FlexRay Interfaces in Automotive
- * Applications”, Version 1.3, May 2012
+ * 鈥淗ardware Requirements for LIN, CAN and FlexRay Interfaces in Automotive
+ * Applications鈥�, Version 1.3, May 2012
  * - High-Noise Immunity Due to Differential Bus Implementation
- * - High ESD Protection on CANH and CANL, meets IEC61000-4-2 up to ±8 kV
+ * - High ESD Protection on CANH and CANL, meets IEC61000-4-2 up to 卤8 kV
  */
 
 #ifndef MCP25625_HW_H_
@@ -259,7 +259,7 @@
  *          RXF4 - Filters RXB1 /
  *          RXF5 - Filters RXB1 )
  */
-#define MCP25625_FILTER( x )        ( (x) < 3 ? (x) * 4 : (x) * 4 + 0x10 )
+#define MCP25625_FILTER( x )        ( (x) < 3 ? (x) * 4 : (x) * 4 + 0x04 )
 
 /******************************************************************************
 * Configuration Constants
@@ -661,7 +661,7 @@ typedef struct {
  *
  * + pX_stat <RO> - Pin mode
  *      + true - Reads state of TX RTS pin when in Digital Input mode
- *      + false - Reads as ‘0’ when pin is in ‘Request-to-Send’ mode
+ *      + false - Reads as 鈥�0鈥� when pin is in 鈥楻equest-to-Send鈥� mode
  */
 typedef enum {
 
@@ -774,7 +774,7 @@ typedef struct {
  * + sof <RW> - Start-of-Frame Signal
  *      - true - CLKOUT pin enabled for SOF signal
  *      - false - CLKOUT pin enabled for clockout function
- * ( If clken = false ( mcp25625_CAN_ctl ), bit is don’t care )
+ * ( If clken = false ( mcp25625_CAN_ctl ), bit is don鈥檛 care )
  */
 typedef enum {
 
@@ -1042,7 +1042,7 @@ typedef struct {
  *
  * + txreq <RW> - Message Transmit Request
  *      - true - Buffer is currently pending transmission ( MCU sets this bit to
- * request message be transmitted – bit is automatically cleared when the
+ * request message be transmitted 鈥� bit is automatically cleared when the
  * message is sent )
  *      - false - Buffer is not currently pending transmission ( MCU can clear
  * this bit to request a message abort)

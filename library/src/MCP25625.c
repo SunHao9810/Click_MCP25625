@@ -401,6 +401,9 @@ int mcp25625_rx_config
         bool RX_PIN
 )
 {
+    if( mcp25625_mode( OPMODE_CONFIG ) )
+        return MCP25625_MODE_FAULT;
+
     switch( rx_buff )
     {
         case RXB0 :
@@ -434,6 +437,9 @@ int mcp25625_rx_config
 
         break;
     }
+
+    if( mcp25625_mode( default_mode ) )
+        return MCP25625_MODE_FAULT;
 
     return MCP25625_OK;
 }
@@ -473,8 +479,14 @@ int mcp25625_mask_config
    pack_eid( EID, &transfer.id );
    pack_sid( SID, &transfer.id );
 
+    if( mcp25625_mode( OPMODE_CONFIG ) )
+        return MCP25625_MODE_FAULT;
+
     if( mcp25625_hw_mask_set( rx_mask, &transfer.id ) )
         return MCP25625_CTL_ERR;
+
+    if( mcp25625_mode( default_mode ) )
+        return MCP25625_MODE_FAULT;
 
     return MCP25625_OK;
 }
